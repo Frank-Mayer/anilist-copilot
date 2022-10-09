@@ -22,11 +22,11 @@ Build
 
 ## Install
 
-1. Open [chrome://extensions](chrome://extensions) in Chrome
+1. Open [`chrome://extensions`](chrome://extensions) in Chrome
 1. Enable Developer Mode (top right)
-1. Click "Load Unpacked" (top left)
+1. Click `Load Unpacked` (top left)
 1. Select the `public` folder in this repository
 
-To update, rebuild and press the "Reload" button in the extension page
+To update, rebuild and press the reload button in the extension page
 
-To log in to AniList, click the extension icon and press the "Login" button
+To log in to AniList, click the extension icon and press the `Login` button
