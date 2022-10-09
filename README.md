@@ -1,1 +1,1 @@
-# anilist-copilot
+# Copilot for AniList

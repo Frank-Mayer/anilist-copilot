@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Copilot for AniList",
+  "version": "0.0.1",
+  "action": {
+    "default_icon": "icons/icon32.png",
+    "default_popup": "popup.html",
+    "default_title": "Copilot for AniList"
+  },
+  "description": "Automaticly add watched anime to your AniList profile",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "128": "icons/icon128.png"
+  },
+  "author": "Frank Mayer",
+  "content_scripts": [
+    {
+      "matches": ["https://aniworld.to/*", "https://*.aniworld.to/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "homepage_url": "https://github.com/Frank-Mayer/anilist-copilot",
+  "host_permissions": [],
+  "minimum_chrome_version": "106.0.5249.103",
+  "offline_enabled": true,
+  "permissions": ["tabs", "storage"]
+}

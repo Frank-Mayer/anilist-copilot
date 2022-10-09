@@ -1,3 +1,27 @@
+# IDE
+.vscode
+*.code-workspace
+.vs
+.idea
+*.iml
+.fleet
+
+# Lock files
+package-lock.json
+yarn.lock
+.yarn
+.yarn-integrity
+.pnp.*
+bun.lockb
+
+# Distribution files
+public/*
+!public/manifest.json
+!public/icons
+
+# Temp
+.parcel-cache
+
 # Logs
 logs
 *.log
@@ -86,3 +110,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Mac
+.DS_Store
