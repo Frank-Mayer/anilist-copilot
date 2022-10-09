@@ -7,7 +7,6 @@
 .fleet
 
 # Lock files
-package-lock.json
 yarn.lock
 .yarn
 .yarn-integrity
