@@ -1,5 +1,8 @@
 import anilist from "../lib/settings.json";
 import { auth } from "../lib/auth";
+import { TypedStorage } from "../lib/TypedStorage";
+
+const typedStorage = new TypedStorage();
 
 const loggedIn = (name: string) => {
   const el = document.createElement("p");
@@ -24,12 +27,20 @@ auth().then((client) => {
         }
     }`
       .then((data) => {
-        loggedIn(data.Viewer.name);
+        if (data) {
+          loggedIn(data.Viewer.name);
+        } else {
+          console.error("GraphQL error", data);
+          notLoggedIn();
+        }
       })
       .catch((err) => {
+        console.debug("invalid client", err);
+        typedStorage.remove("anilistToken");
         notLoggedIn();
       });
   } else {
+    console.debug("No client found");
     notLoggedIn();
   }
 });

@@ -13,6 +13,17 @@ export class TypedStorage {
     this._storage = storage || chrome.storage.sync;
   }
 
+  public onChanged<K extends keyof Stored>(
+    key: K,
+    callback: (newValue: Stored[K], oldValue: Stored[K]) => void
+  ) {
+    this._storage.onChanged.addListener((changes) => {
+      if (key in changes) {
+        callback(changes[key].newValue, changes[key].oldValue);
+      }
+    });
+  }
+
   public async get<K extends keyof Stored>(
     key: K
   ): Promise<Stored[K] | undefined> {
@@ -27,6 +38,10 @@ export class TypedStorage {
   public async has<K extends keyof Stored>(key: K): Promise<boolean> {
     const resObj = await this._storage.get(key);
     return key in resObj;
+  }
+
+  public remove(key: keyof Stored) {
+    return this._storage.remove(key);
   }
 
   public async getOrCreate<K extends keyof Stored>(
